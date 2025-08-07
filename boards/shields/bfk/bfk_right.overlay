@@ -1,6 +1,6 @@
 #include "bfk.dtsi"
 
-&default_transform {
-    col-offset = <17>;
-};
+// &default_transform {
+//     col-offset = <17>;
+// };
 
