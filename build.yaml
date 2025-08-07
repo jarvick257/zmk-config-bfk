@@ -20,4 +20,6 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: bfk
+    shield: bfk_left
+  - board: nice_nano_v2
+    shield: bfk_right
