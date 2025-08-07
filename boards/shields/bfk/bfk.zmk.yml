@@ -1,0 +1,11 @@
+file_format: "1"
+id: bfk
+name: BFK
+type: shield
+url: https://github.com/jarvick257/zmk-config-bfk
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - bfk_left
+  - bfk_right
