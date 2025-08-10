@@ -2,29 +2,60 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-/ {
+#define DEFAULT 0
+#define NUM 1
+#define NAV 2
+#define FN 3
+#define BT 4
 
+/ {
     keymap {
         compatible = "zmk,keymap";
 
-        // This is a sample keymap intended to be replaced with your own
-        base_layer {
+        default_layer {
             bindings = <
-                &kp Q     &kp W     &kp E     &kp R     &kp T              &kp Y     &kp U     &kp I     &kp O     &kp P
-                &kp A     &kp S     &kp D     &kp F     &kp G              &kp H     &kp J     &kp K     &kp L     &kp SEMI
-                &kp Z     &kp X     &kp C     &kp V     &kp B              &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH
-                                              &mo 1     &kp BSPC           &kp SPACE &kp ENTER
+                &lt NAV Q  &kp W  &kp F  &kp P    &kp B            &kp J      &kp L  &kp U     &kp Y    &kp ESC
+                &kp A      &kp R  &kp S  &kp T    &kp G            &kp M      &kp N  &kp E     &kp I    &kp O
+                &kp Z      &kp X  &kp C  &kp D    &kp V            &kp K      &kp H  &kp SCLN  &kp DOT  &kp RET
+                                         &mo NUM  &kp SPACE        &kp BSPC   &kp LSHIFT
+            >;
+        };
+
+        num_layer {
+            bindings = <
+                &kp TAB         &kp GRAVE     &kp LBKT       &kp RBKT   &trans         &kp BSLH   &kp N7  &kp N8      &kp N9      &trans
+                &mt LCTRL EQUAL &mt LALT APOS &mt LGUI COMMA &kp MINUS  &kp DOT        &kp SLASH  &kp N4  &mt LGUI N5 &mt LALT N6 &mt LCTRL N0
+                &trans          &trans        &kp LPAR       &kp RPAR   &trans         &kp SPACE  &kp N1  &kp N2      &kp N3      &trans
+                                                             &trans     &trans         &trans     &trans
+            >;
+        };
+
+        nav_layer {
+            bindings = <
+                &trans  &trans  &tt FN  &trans  &mo BT       &kp DOWN   &kp RIGHT  &kp PG_UP  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans       &kp PSCRN  &kp HOME   &kp END    &trans  &trans
+                &trans  &trans  &trans  &trans  &trans       &kp UP     &kp LEFT   &kp PG_DN  &trans  &trans
+                                        &trans  &trans       &kp DEL    &trans
+            >;
+        };
+
+        fn_layer {
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans       &kp F10  &kp F7  &kp F8  &kp F9  &none   &none
+                &trans  &trans  &trans  &trans  &trans       &kp F11  &kp F4  &kp F5  &kp F6  &trans  &to DEFAULT
+                &trans  &trans  &trans  &trans  &trans       &kp F12  &kp F1  &kp F2  &kp F3  &trans  &none
+                                        &trans  &trans       &trans   &trans
             >;
         };
 
         bt_layer {
             bindings = <
-                &bt BT_CLR   &kp W     &kp E     &kp R          &kp T              &kp Y     &kp U     &kp I     &kp O     &kp P
-                &kp A        &kp S     &kp D     &bt BT_SEL 0   &kp G              &kp H     &kp J     &kp K     &kp L     &kp SEMI
-                &kp Z        &kp X     &kp C     &kp V          &kp B              &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH
-                                                 &none          &kp BSPC           &kp SPACE &kp ENTER
+                &trans  &trans  &trans  &trans  &trans        &trans      &trans        &trans        &trans        &trans
+                &trans  &trans  &trans  &trans  &trans        &trans      &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans
+                &trans  &trans  &trans  &trans  &trans        &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans
+                                        &trans  &trans        &bt BT_CLR  &trans
             >;
         };
-
     };
 };
+
