@@ -8,8 +8,8 @@
 #define FN 3
 #define BT 4
 
-#define HRL(a,b,c) (&mt LCTRL a &mt LALT b &mt LGUI c)
-#define HRR(a,b,c) (&mt LGUI a  &mt LALT b &mt LCTRL c)
+// #define HRL(a,b,c) (&mt LCTRL a &mt LALT b &mt LGUI c)
+// #define HRR(a,b,c) (&mt LGUI a &mt LALT b &mt LCTRL c)
 
 / {
     keymap {
@@ -26,9 +26,9 @@
 
         num_layer {
             bindings = <
-                &kp TAB     &kp GRAVE   &kp LBKT  &kp RBKT   &trans         &kp BSLH   &kp N7  &kp N8  &kp N9  &trans
-                HRL(EQUAL,  APOS,       COMMA)    &kp MINUS  &kp DOT        &kp SLASH  &kp N4  HRR(N5, N6,     N0)
-                &trans      &trans      &kp LPAR  &kp RPAR   &trans         &kp SPACE  &kp N1  &kp N2  &kp N3  &trans
+                &kp TAB         &kp GRAVE     &kp LBKT       &kp RBKT   &trans         &kp BSLH   &kp N7  &kp N8      &kp N9      &trans
+                &mt LCTRL EQUAL &mt LALT APOS &mt LGUI COMMA &kp MINUS  &kp DOT        &kp SLASH  &kp N4  &mt LGUI N5 &mt LALT N6 &mt LCTRL N0
+                &trans          &trans        &kp LPAR       &kp RPAR   &trans         &kp SPACE  &kp N1  &kp N2      &kp N3      &trans
                                                              &trans     &trans         &trans     &trans
             >;
         };
